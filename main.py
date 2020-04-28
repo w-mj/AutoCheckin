@@ -47,6 +47,4 @@ def main():
 
 
 if __name__ == '__main__':
-    with open('secret') as f:
-        sys.argv[1] = f.read()
     main()
