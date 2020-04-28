@@ -14,7 +14,7 @@ def build_argv():
         return
     argv_list = sys.argv[1].split('|')
     for argv in argv_list:
-        argv.strip(' \n\r')
+        argv = argv.strip()
         equal = argv.find('=')
         if equal == -1:
             raise Exception("can not parse argument {}".format(argv))
@@ -47,4 +47,6 @@ def main():
 
 
 if __name__ == '__main__':
+    with open('secret') as f:
+        sys.argv[1] = f.read()
     main()
