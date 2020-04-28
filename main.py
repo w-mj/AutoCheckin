@@ -10,7 +10,11 @@ assigned_list = [ShadowSky]
 
 def build_argv():
     ret = {}
-    for argv in sys.argv[1:]:
+    if len(sys.argv) < 2:
+        return
+    argv_list = sys.argv[1].split('|')
+    for argv in argv_list:
+        argv.strip(' \n\r')
         equal = argv.find('=')
         if equal == -1:
             raise Exception("can not parse argument {}".format(argv))
