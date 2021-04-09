@@ -23,7 +23,7 @@ class ShadowSky(Checkin):
         login_result = json.loads(login_result.text.encode())
         if 'error_code' in login_result:
             return Result.fail(login_result['msg'])
-        shadowsky_headers.update({'Origin': 'https://www.shadowsky.fun', 'Referer': 'https://www.shadowsky.icu/user',
+        shadowsky_headers.update({'Origin': 'https://www.shadowsky.fun', 'Referer': 'https://www.shadowsky.fun/user',
                                   'Accept': 'application/json, text/javascript, */*; q=0.01',
                                   'X-Requested-With': 'XMLHttpRequest'})
         shadowsky_checkin_page = shadowsky_session.post('https://www.shadowsky.fun/user/checkin',
